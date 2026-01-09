@@ -84,11 +84,11 @@ const Home = () => {
                                     Digital Studio
                                 </span>
 
-                                <div className="mb-12">
+                                <div className="mb-5">
                                     <TextReveal className="text-6xl md:text-8xl lg:text-9xl font-semibold tracking-tighter text-text-primary leading-[0.9]">
                                         Where Brands
                                     </TextReveal>
-                                    <TextReveal className="text-6xl md:text-8xl lg:text-9xl font-semibold tracking-tighter text-text-accent leading-[0.9]">
+                                    <TextReveal className="text-6xl md:text-8xl lg:text-9xl font-semibold tracking-tighter text-text-accent leading-[0.9] pb-5">
                                         Go Digital.
                                     </TextReveal>
                                 </div>

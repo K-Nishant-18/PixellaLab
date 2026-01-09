@@ -5,7 +5,7 @@ import PageTransition from '../components/UI/PageTransition';
 import TextReveal from '../components/UI/TextReveal';
 import MagneticButton from '../components/UI/MagneticButton';
 import AccordionItem from '../components/UI/AccordionItem';
-import Globe from '../components/UI/Globe';
+import HeroGrid from '../components/Home/HeroGrid';
 
 const Home = () => {
     const [openFaq, setOpenFaq] = useState(0);
@@ -50,10 +50,35 @@ const Home = () => {
             <div className="pt-20 bg-bg-primary min-h-screen border-x border-border max-w-[1920px] mx-auto">
 
                 {/* Hero Section */}
-                <section className="border-b border-border">
-                    <div className="grid grid-cols-1 lg:grid-cols-12 min-h-[85vh]">
-                        {/* Left: Content */}
-                        <div className="lg:col-span-8 p-8 md:p-16 flex flex-col justify-center border-b lg:border-b-0 lg:border-r border-border relative">
+                <section className="relative min-h-[90vh] flex items-center overflow-hidden border-b border-border">
+                    {/* Background Layer: Uneven Merge */}
+                    <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+                        {/* Layer 1: Soft Secondary Background Blob (Right side) */}
+                        <div
+                            className="absolute top-[-20%] right-[-10%] w-[80%] h-[140%] bg-bg-secondary rounded-full blur-3xl opacity-80"
+                            style={{ transform: 'rotate(-10deg)' }}
+                        />
+
+                        {/* Layer 2: Accent Gradient Bloom (Middle-Right) */}
+                        <div
+                            className="absolute top-[20%] right-[30%] w-[40%] h-[80%] bg-text-accent/5 rounded-full blur-[100px]"
+                        />
+
+                        {/* Layer 3: Grid Visual with Soft Mask */}
+                        <div
+                            className="absolute top-0 right-0 w-[75%] h-full pointer-events-auto"
+                            style={{
+                                maskImage: 'linear-gradient(to left, black 40%, transparent 100%)',
+                                WebkitMaskImage: 'linear-gradient(to left, black 40%, transparent 100%)'
+                            }}
+                        >
+                            <HeroGrid />
+                        </div>
+                    </div>
+
+                    <div className="container mx-auto px-6 md:px-12 relative z-10 grid grid-cols-1 lg:grid-cols-12 h-full pointer-events-none">
+                        {/* Left Content */}
+                        <div className="lg:col-span-7 flex flex-col justify-center py-20 pointer-events-auto">
                             <div className="max-w-4xl">
                                 <span className="block text-sm font-medium tracking-widest uppercase text-text-secondary mb-6">
                                     Digital Studio
@@ -82,11 +107,6 @@ const Home = () => {
                                     </Link>
                                 </div>
                             </div>
-                        </div>
-
-                        {/* Right: Abstract/Visual */}
-                        <div className="lg:col-span-4 bg-bg-secondary flex items-center justify-center p-8 relative overflow-hidden">
-                            <Globe />
                         </div>
                     </div>
                 </section>
@@ -242,7 +262,7 @@ const Home = () => {
                 </section>
 
             </div>
-        </PageTransition>
+        </PageTransition >
     );
 };
 

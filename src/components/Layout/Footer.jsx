@@ -10,7 +10,8 @@ const Footer = () => {
                 {/* Brand Column - Huge */}
                 <div className="md:col-span-12 lg:col-span-5 p-12 lg:border-r border-border flex flex-col justify-between">
                     <div>
-                        <Link to="/" className="inline-block mb-6">
+                        <Link to="/" className="flex items-center gap-3 mb-6">
+                            <img src="/PixellaLab-Logo.png" alt="Pixella Labs Logo" className="h-12 w-auto" />
                             <span className="text-3xl font-bold tracking-tighter text-text-primary">
                                 Pixella Labs<span className="text-text-accent">.</span>
                             </span>

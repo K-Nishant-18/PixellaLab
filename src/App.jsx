@@ -1,19 +1,30 @@
-import React from 'react';
+import React, { Suspense, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
 import Navbar from './components/Layout/Navbar';
 import Footer from './components/Layout/Footer';
-import Home from './pages/Home';
-import Services from './pages/Services';
-import Contact from './pages/Contact';
-import Portfolio from './pages/Portfolio';
-import About from './pages/About';
-import HowItWorks from './pages/HowItWorks';
-import { useEffect } from 'react';
 
 // UI Interactions
 import SmoothScroll from './components/UI/SmoothScroll';
 import CustomCursor from './components/UI/CustomCursor';
+import Loader from './components/UI/Loader';
+
+// Lazy Load with artificial delay for branding moment
+const lazyLoad = (importFunc) => {
+    return React.lazy(() => {
+        return Promise.all([
+            importFunc(),
+            new Promise(resolve => setTimeout(resolve, 2000)) // 2s minimum load time
+        ]).then(([module]) => module);
+    });
+};
+
+const Home = lazyLoad(() => import('./pages/Home'));
+const Services = lazyLoad(() => import('./pages/Services'));
+const Contact = lazyLoad(() => import('./pages/Contact'));
+const Portfolio = lazyLoad(() => import('./pages/Portfolio'));
+const About = lazyLoad(() => import('./pages/About'));
+const HowItWorks = lazyLoad(() => import('./pages/HowItWorks'));
 
 // Scroll to top on route change
 const ScrollToTop = () => {
@@ -51,7 +62,9 @@ const AppContent = () => {
                 <ScrollToTop />
                 <Navbar />
                 <main className="flex-grow">
-                    <AnimatedRoutes />
+                    <Suspense fallback={<Loader />}>
+                        <AnimatedRoutes />
+                    </Suspense>
                 </main>
                 <Footer />
             </div>

@@ -65,11 +65,67 @@ const About = () => {
                 </section>
 
                 {/* Team/Contact Mini CTA */}
-                <section className="p-20 text-center bg-bg-secondary">
-                    <p className="text-text-secondary uppercase tracking-widest text-sm mb-4">The Team</p>
-                    <p className="text-2xl md:text-3xl text-text-primary max-w-2xl mx-auto mb-8 font-light">
-                        A small, dedicated team of designers and developers building for the long term.
-                    </p>
+                {/* Core Team - Grid */}
+                <section className="border-b border-border">
+                    <div className="p-12 border-b border-border text-center">
+                        <h2 className="text-4xl font-semibold tracking-tighter text-text-primary">Core Team</h2>
+                        <p className="text-text-secondary mt-4 uppercase tracking-widest text-sm">The minds behind the pixels.</p>
+                    </div>
+                    <div className="grid grid-cols-1 md:grid-cols-3">
+                        {[
+                            {
+                                name: 'Kumar Nishant',
+                                role: 'Founder · Studio Lead',
+                                bio: 'Leads Pixella Labs and oversees strategy, project direction, and client collaboration. Ensures every project meets studio standards for quality, clarity, and performance.',
+                                image: 'https://placehold.co/400x400/1a1a1a/ffffff?text=KN'
+                            },
+                            {
+                                name: 'Iti Karmakar',
+                                role: 'Marketing & Growth',
+                                bio: 'Focuses on positioning, conversion strategy, and digital growth. Ensures websites are not just visually appealing, but optimized for visibility, engagement, and customer action.',
+                                image: 'https://placehold.co/400x400/1a1a1a/ffffff?text=IK'
+                            },
+                            {
+                                name: 'Subham Bangal',
+                                role: 'Operations & Client Support',
+                                bio: 'Manages project coordination, timelines, communication, and post-launch support. Ensures smooth delivery and a reliable client experience.',
+                                image: 'https://placehold.co/400x400/1a1a1a/ffffff?text=SB'
+                            },
+                            {
+                                name: 'Aditya Suryavanshi',
+                                role: 'UI/UX Designer',
+                                bio: 'Designs clean, modern interfaces focused on usability, visual clarity, and brand consistency. Responsible for layout systems, user journeys, and experience design.',
+                                image: 'https://placehold.co/400x400/1a1a1a/ffffff?text=AS'
+                            },
+                            {
+                                name: 'Gaurav Shaw',
+                                role: 'Web Developer',
+                                bio: 'Builds fast, responsive, and scalable websites. Focuses on performance, accessibility, and smooth functionality across all devices.',
+                                image: 'https://placehold.co/400x400/1a1a1a/ffffff?text=GS'
+                            },
+                            
+                            
+                        ].map((member, idx) => (
+                            <div key={idx} className={`p-16 border-border border-b md:border-b-0 ${idx % 3 !== 2 ? 'md:border-r' : ''} ${idx >= 3 ? 'md:border-t' : ''} hover:bg-bg-secondary transition-colors group`}>
+                                <div className="mb-6">
+                                    <img
+                                        src={member.image}
+                                        alt={member.name}
+                                        className="w-24 h-24 rounded-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 border border-border"
+                                    />
+                                </div>
+                                <h3 className="text-2xl font-bold text-text-primary mb-1">{member.name}</h3>
+                                <div className="text-sm font-medium text-text-accent uppercase tracking-widest mb-6">{member.role}</div>
+                                <p className="text-text-secondary text-lg leading-relaxed">{member.bio}</p>
+                            </div>
+                        ))}
+                        {/* Filler div for the 6th slot to complete the grid visually if needed, or leave blank styling */}
+                        <div className="p-16 border-border md:border-t hidden md:block bg-bg-secondary/20">
+                            <div className="h-full flex items-center justify-center text-text-secondary opacity-20 font-display text-4xl">
+                                Pixella Labs.
+                            </div>
+                        </div>
+                    </div>
                 </section>
 
             </div>

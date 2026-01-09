@@ -34,6 +34,7 @@ const HeroGrid = () => {
                 style={{
                     gridTemplateColumns: `repeat(${gridSize.columns}, 1fr)`,
                     gridTemplateRows: `repeat(${gridSize.rows}, 1fr)`,
+                    gridAutoFlow: 'dense', // Enable dense packing for uneven cells
                     width: '100%',
                     height: '100%'
                 }}
@@ -54,13 +55,27 @@ const HeroGrid = () => {
 };
 
 const GridCell = () => {
-    // Generate uniform random opacity between 0.05 and 0.3 for the "uneven shades" look
+    // Generate uniform random opacity between 0.1 and 0.4 for the "uneven shades" look
     // Using useState to keep it stable across re-renders
     const [baseOpacity] = useState(() => Math.random() * 0.3 + 0.1);
+
+    // Randomize spans for "Uneven Sizes"
+    // ~15% chance to be larger
+    const [spans] = useState(() => {
+        const rand = Math.random();
+        if (rand > 0.95) return { col: 2, row: 2 }; // Big block (5%)
+        if (rand > 0.90) return { col: 2, row: 1 }; // Wide block (5%)
+        if (rand > 0.85) return { col: 1, row: 2 }; // Tall block (5%)
+        return { col: 1, row: 1 }; // Standard cell (85%)
+    });
 
     return (
         <motion.div
             className="w-full h-full border-[0.5px] border-text-primary/30 relative"
+            style={{
+                gridColumn: `span ${spans.col}`,
+                gridRow: `span ${spans.row}`
+            }}
             initial={{
                 opacity: 0,
                 backgroundColor: "transparent"

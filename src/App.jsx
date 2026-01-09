@@ -25,6 +25,8 @@ const Contact = lazyLoad(() => import('./pages/Contact'));
 const Portfolio = lazyLoad(() => import('./pages/Portfolio'));
 const About = lazyLoad(() => import('./pages/About'));
 const HowItWorks = lazyLoad(() => import('./pages/HowItWorks'));
+const Privacy = lazyLoad(() => import('./pages/Privacy'));
+const Terms = lazyLoad(() => import('./pages/Terms'));
 
 // Scroll to top on route change
 const ScrollToTop = () => {
@@ -49,6 +51,8 @@ const AnimatedRoutes = () => {
                 <Route path="/how-it-works" element={<HowItWorks />} />
                 <Route path="/contact" element={<Contact />} />
                 <Route path="/portfolio" element={<Portfolio />} />
+                <Route path="/privacy" element={<Privacy />} />
+                <Route path="/terms" element={<Terms />} />
             </Routes>
         </AnimatePresence>
     );

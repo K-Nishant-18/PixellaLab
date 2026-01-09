@@ -1,0 +1,102 @@
+@import "tailwindcss";
+
+:root {
+  /* Typography */
+  --font-heading: 'Outfit', sans-serif;
+  --font-body: 'Inter', sans-serif;
+
+  /* Radii - Sharp/Minimal */
+  --radius-sm: 0px;
+  --radius-md: 2px;
+  --radius-lg: 4px;
+
+  /* Light Mode (Default) - Swiss Style (High Contrast) */
+  --bg-primary: #f4f4f0;
+  /* Warm Off-white, like paper */
+  --bg-secondary: #ffffff;
+  --bg-accent: #e0e0dc;
+
+  --text-primary: #1a1a1a;
+  /* Sharp Black */
+  --text-secondary: #595959;
+  /* Neutral Grey */
+  --text-accent: #2b45f5;
+  /* International Klein Blue (Swiss favorite) */
+
+  --border-color: #d1d1cd;
+}
+
+[data-theme="dark"] {
+  /* Dark Mode - Technical/Studio */
+  --bg-primary: #0f0f0f;
+  /* Deep Matte Black */
+  --bg-secondary: #1a1a1a;
+  --bg-accent: #262626;
+
+  --text-primary: #f2f2f2;
+  --text-secondary: #a3a3a3;
+  --text-accent: #4d66ff;
+  /* Lighter Blue for dark mode */
+
+  --border-color: #333333;
+}
+
+@theme {
+  --font-family-sans: var(--font-body);
+  --font-family-display: var(--font-heading);
+
+  --color-bg-primary: var(--bg-primary);
+  --color-bg-secondary: var(--bg-secondary);
+  --color-bg-accent: var(--bg-accent);
+
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-accent: var(--text-accent);
+
+  --color-border: var(--border-color);
+
+  --radius-sm: var(--radius-sm);
+  --radius-md: var(--radius-md);
+  --radius-lg: var(--radius-lg);
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  margin: 0;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  /* Editorial weight */
+  letter-spacing: -0.03em;
+  /* Tight tracking */
+}
+
+/* Swiss Grid Utilities */
+.swiss-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 1px;
+  background-color: var(--border-color);
+  /* Creates the grid lines */
+  border: 1px solid var(--border-color);
+}
+
+.swiss-grid>* {
+  background-color: var(--bg-primary);
+}
+
+.section-border-b {
+  border-bottom: 1px solid var(--border-color);
+}

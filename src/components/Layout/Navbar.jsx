@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { HiMenuAlt3, HiX } from 'react-icons/hi';
+import { HiMenuAlt3, HiX, HiDownload } from 'react-icons/hi';
 import ThemeToggle from '../UI/ThemeToggle';
 
 const Navbar = () => {
@@ -45,10 +45,20 @@ const Navbar = () => {
                         </NavLink>
                     ))}
                 </div>
-
                 {/* Desktop Controls */}
                 <div className="hidden md:flex items-center gap-6">
                     <ThemeToggle />
+
+                    {/* Brochure Download */}
+                    <a
+                        href="/Pixella_Labs_Brochure.pdf"
+                        download
+                        className="flex items-center gap-2 text-sm font-medium text-text-secondary hover:text-text-primary transition-colors"
+                    >
+                        <HiDownload className="text-lg" />
+                        <span>Brochure</span>
+                    </a>
+
                     <Link to="/contact">
                         <button type="button" className="px-6 py-2.5 bg-text-primary text-bg-primary font-medium text-sm rounded-sm hover:bg-transparent hover:text-text-primary border border-text-primary transition-all">
                             Start a Project
@@ -67,10 +77,10 @@ const Navbar = () => {
                         {isOpen ? <HiX size={28} /> : <HiMenuAlt3 size={28} />}
                     </button>
                 </div>
-            </div>
+            </div >
 
             {/* Mobile Menu Overlay */}
-            <AnimatePresence>
+            < AnimatePresence >
                 {isOpen && (
                     <motion.div
                         initial={{ opacity: 0 }}
@@ -92,8 +102,16 @@ const Navbar = () => {
                                     </NavLink>
                                 </li>
                             ))}
-                            <li className="pt-8 border-t border-border mt-8">
-                                <Link to="/contact">
+                            <li className="pt-8 border-t border-border mt-8 space-y-4">
+                                <a
+                                    href="/Pixella_Labs_Brochure.pdf"
+                                    download
+                                    className="flex items-center justify-center gap-2 w-full py-4 border border-border text-text-primary font-medium text-lg rounded-sm hover:bg-bg-secondary transition-colors"
+                                >
+                                    <HiDownload />
+                                    <span>Brochure</span>
+                                </a>
+                                <Link to="/contact" className="block">
                                     <button className="w-full py-4 bg-text-accent text-white font-medium text-lg rounded-sm">
                                         Start a Project
                                     </button>
@@ -102,8 +120,8 @@ const Navbar = () => {
                         </ul>
                     </motion.div>
                 )}
-            </AnimatePresence>
-        </nav>
+            </AnimatePresence >
+        </nav >
     );
 };
 

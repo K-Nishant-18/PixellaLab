@@ -22,13 +22,32 @@ const Footer = () => {
                         </p>
                     </div>
                     <div className="flex gap-4 mt-8">
-                        <a href="#" className="w-12 h-12 flex items-center justify-center border border-border text-text-primary hover:bg-text-accent hover:text-white hover:border-text-accent transition-all">
+                        <a
+                            href="#"
+                            onClick={(e) => e.preventDefault()}
+                            className="group relative w-12 h-12 flex items-center justify-center border border-border text-text-primary hover:bg-text-accent hover:text-white hover:border-text-accent transition-all cursor-help focus:outline-none"
+                        >
                             <FaInstagram size={20} />
+                            <span className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-2 py-1 text-xs font-medium text-white bg-black rounded opacity-0 group-hover:opacity-100 group-focus:opacity-100 group-active:opacity-100 transition-opacity whitespace-nowrap pointer-events-none z-10">
+                                Coming Soon
+                            </span>
                         </a>
-                        <a href="#" className="w-12 h-12 flex items-center justify-center border border-border text-text-primary hover:bg-text-accent hover:text-white hover:border-text-accent transition-all">
+                        <a
+                            href="#"
+                            onClick={(e) => e.preventDefault()}
+                            className="group relative w-12 h-12 flex items-center justify-center border border-border text-text-primary hover:bg-text-accent hover:text-white hover:border-text-accent transition-all cursor-help focus:outline-none"
+                        >
                             <FaLinkedin size={20} />
+                            <span className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-2 py-1 text-xs font-medium text-white bg-black rounded opacity-0 group-hover:opacity-100 group-focus:opacity-100 group-active:opacity-100 transition-opacity whitespace-nowrap pointer-events-none z-10">
+                                Coming Soon
+                            </span>
                         </a>
-                        <a href="#" className="w-12 h-12 flex items-center justify-center border border-border text-text-primary hover:bg-text-accent hover:text-white hover:border-text-accent transition-all">
+                        <a
+                            href="https://wa.me/918986412823"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="w-12 h-12 flex items-center justify-center border border-border text-text-primary hover:bg-text-accent hover:text-white hover:border-text-accent transition-all"
+                        >
                             <FaWhatsapp size={20} />
                         </a>
                     </div>

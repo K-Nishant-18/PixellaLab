@@ -132,20 +132,43 @@ const Home = () => {
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2">
-                        <div className="group border-b md:border-b-0 md:border-r border-border relative aspect-[4/3] overflow-hidden bg-gray-100 dark:bg-gray-800">
-                            <div className="absolute inset-0 bg-text-accent mix-blend-overlay opacity-0 group-hover:opacity-20 transition-opacity duration-500"></div>
-                            <div className="absolute bottom-0 left-0 p-8 w-full bg-gradient-to-t from-black/50 to-transparent text-white">
-                                <h3 className="text-3xl font-bold">Urban Coffee</h3>
-                                <p className="text-white/80">Brand & E-commerce</p>
+                        {/* Project 1: Miksha Salon */}
+                        <a
+                            href="https://miksha-salon.vercel.app/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="group border-b md:border-b-0 md:border-r border-border relative aspect-[4/3] overflow-hidden block"
+                        >
+                            <div
+                                className="absolute inset-0 bg-cover bg-center opactiy-80 group-hover:scale-105 transition-all duration-700"
+                                style={{ backgroundImage: "url('/Projects/mishka.png')" }}
+                            ></div>
+                            <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors duration-500"></div>
+
+                            <div className="absolute bottom-0 left-0 p-8 w-full bg-gradient-to-t from-black/80 to-transparent text-white">
+                                <h3 className="text-3xl font-bold mb-1">Miksha Salon</h3>
+                                <p className="text-white/80 font-medium">Live Business Website</p>
                             </div>
-                        </div>
-                        <div className="group aspect-[4/3] relative overflow-hidden bg-gray-200 dark:bg-gray-900">
-                            <div className="absolute inset-0 bg-text-accent mix-blend-overlay opacity-0 group-hover:opacity-20 transition-opacity duration-500"></div>
-                            <div className="absolute bottom-0 left-0 p-8 w-full bg-gradient-to-t from-black/50 to-transparent text-white">
-                                <h3 className="text-3xl font-bold">Tech Startup</h3>
-                                <p className="text-white/80">Website & Identity</p>
+                        </a>
+
+                        {/* Project 2: SkillBloom+ */}
+                        <a
+                            href="https://skillbloom-plus.vercel.app/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="group aspect-[4/3] relative overflow-hidden block bg-bg-secondary"
+                        >
+                            <div
+                                className="absolute inset-0 bg-cover bg-center opactiy-80 group-hover:scale-105 transition-all duration-700"
+                                style={{ backgroundImage: "url('/Projects/skillbloom+.png')" }}
+                            ></div>
+                            <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors duration-500"></div>
+
+                            <div className="absolute bottom-0 left-0 p-8 w-full bg-gradient-to-t from-black/80 to-transparent text-white">
+                                <h3 className="text-3xl font-bold mb-1">SkillBloom+</h3>
+                                <p className="text-white/80 font-medium">LMS Platform</p>
                             </div>
-                        </div>
+                        </a>
                     </div>
                 </section>
 

@@ -6,10 +6,10 @@ import MagneticButton from '../components/UI/MagneticButton';
 
 const Portfolio = () => {
     const projects = [
-        { type: 'Demo Business Website', title: 'Modern Salon', tags: ['Web Design', 'Local Business'], image: 'bg-gradient-to-br from-pink-500 to-purple-600' },
-        { type: 'Sample Brand Website', title: 'Urban Coffee', tags: ['E-commerce', 'Branding'], image: 'bg-gradient-to-br from-yellow-700 to-orange-900' },
-        { type: 'Concept Website', title: 'Tech Startup', tags: ['Identity', 'Web Development'], image: 'bg-gradient-to-br from-blue-600 to-cyan-500' },
-        { type: 'Demo Portfolio', title: 'Architect Studio', tags: ['Minimalism', 'Portfolio'], image: 'bg-zinc-800' },
+        { type: 'Live Business Website', title: 'Miksha Salon', tags: ['Web Design', 'Local Business', 'Production'], image: '/Projects/mishka.png', link: 'https://miksha-salon.vercel.app/' },
+        { type: 'College Platform', title: 'Collegia', tags: ['EdTech', 'Social', 'Production'], image: '/Projects/collegia.png', link: 'https://collegia.vercel.app/home' },
+        { type: 'LMS Platform', title: 'SkillBloom+', tags: ['Education', 'Learning', 'Production'], image: '/Projects/skillbloom+.png', link: 'https://skillbloom-plus.vercel.app/' },
+        { type: 'Personal Portfolio', title: 'Nishant Portfolio', tags: ['Identity', 'Design', 'Production'], image: '/Projects/nishant_portfolio.png', link: 'https://www.kumar-nishant.me/' },
     ];
 
     return (
@@ -21,14 +21,24 @@ const Portfolio = () => {
                         Work.
                     </TextReveal>
                     <p className="text-text-secondary max-w-md text-lg">
-                        A selection of conceptual and demo work showcasing our capabilities in design and development.
+                        A selection of our latest work showcasing our capabilities in design and development.
                     </p>
                 </section>
 
                 <section className="grid grid-cols-1 md:grid-cols-2">
                     {projects.map((project, idx) => (
-                        <div key={idx} className={`group border-border ${idx % 2 === 0 ? 'md:border-r' : ''} border-b relative aspect-square overflow-hidden bg-bg-secondary`}>
-                            <div className={`absolute inset-0 ${project.image} opacity-80 group-hover:opacity-100 transition-all duration-500 scale-100 group-hover:scale-105`}></div>
+                        <a
+                            key={idx}
+                            href={project.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className={`group border-border ${idx % 2 === 0 ? 'md:border-r' : ''} border-b relative aspect-video overflow-hidden bg-bg-secondary block`}
+                        >
+                            {/* Background Image with Overlay */}
+                            <div
+                                className="absolute inset-0 bg-cover bg-center opacity-80 group-hover:opacity-100 transition-all duration-700 scale-100 group-hover:scale-105"
+                                style={{ backgroundImage: `url(${project.image})` }}
+                            ></div>
 
                             <div className="absolute inset-0 p-8 flex flex-col justify-between bg-black/20 group-hover:bg-black/40 transition-colors">
                                 <div className="flex gap-2">
@@ -44,7 +54,7 @@ const Portfolio = () => {
                                     <h2 className="text-4xl md:text-5xl font-bold text-white tracking-tight">{project.title}</h2>
                                 </div>
                             </div>
-                        </div>
+                        </a>
                     ))}
                 </section>
 

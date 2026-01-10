@@ -14,7 +14,7 @@ const lazyLoad = (importFunc) => {
     return React.lazy(() => {
         return Promise.all([
             importFunc(),
-            new Promise(resolve => setTimeout(resolve, 2000)) // 2s minimum load time
+            new Promise(resolve => setTimeout(resolve, 1000)) // 2s minimum load time
         ]).then(([module]) => module);
     });
 };

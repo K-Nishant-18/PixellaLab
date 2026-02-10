@@ -6,11 +6,24 @@ import ThemeToggle from '../UI/ThemeToggle';
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
+    const [theme, setTheme] = useState(localStorage.getItem('theme') || 'dark');
     const location = useLocation();
 
     useEffect(() => {
         setIsOpen(false);
     }, [location]);
+
+    // Listen for theme changes
+    useEffect(() => {
+        const handleThemeChange = () => {
+            setTheme(localStorage.getItem('theme') || 'dark');
+        };
+
+        // Check for theme changes periodically
+        const interval = setInterval(handleThemeChange, 100);
+
+        return () => clearInterval(interval);
+    }, []);
 
     const navLinks = [
         { name: 'About', path: '/about' },
@@ -25,7 +38,11 @@ const Navbar = () => {
             <div className="w-full px-6 md:px-12 flex items-center justify-between h-20">
                 {/* Logo */}
                 <Link to="/" className="flex items-center gap-2 group z-20">
-                    <img src="/PixellaLab-Logo.png" alt="Pixella Labs Logo" className="h-10 w-auto" />
+                    <img
+                        src={theme === 'dark' ? '/PixellaLab-Logo-Dark.png' : '/PixellaLab-Logo.png'}
+                        alt="Pixella Labs Logo"
+                        className="h-10 w-auto"
+                    />
                     <span className="self-center text-2xl font-semibold whitespace-nowrap text-text-primary tracking-tighter">
                         Pixella Labs<span className="text-text-accent">.</span>
                     </span>

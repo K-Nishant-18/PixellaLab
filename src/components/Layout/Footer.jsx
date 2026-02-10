@@ -1,8 +1,22 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { FaLinkedin, FaInstagram, FaWhatsapp } from 'react-icons/fa';
 
 const Footer = () => {
+    const [theme, setTheme] = useState(localStorage.getItem('theme') || 'dark');
+
+    // Listen for theme changes
+    useEffect(() => {
+        const handleThemeChange = () => {
+            setTheme(localStorage.getItem('theme') || 'dark');
+        };
+
+        // Check for theme changes periodically
+        const interval = setInterval(handleThemeChange, 100);
+
+        return () => clearInterval(interval);
+    }, []);
+
     return (
         <footer className="bg-bg-primary border-t border-border mt-auto max-w-[1920px] mx-auto w-full border-x">
             <div className="grid grid-cols-1 md:grid-cols-12 min-h-[400px]">
@@ -11,7 +25,11 @@ const Footer = () => {
                 <div className="md:col-span-12 lg:col-span-5 p-12 lg:border-r border-border flex flex-col justify-between">
                     <div>
                         <Link to="/" className="flex items-center gap-3 mb-6">
-                            <img src="/PixellaLab-Logo.png" alt="Pixella Labs Logo" className="h-12 w-auto" />
+                            <img
+                                src={theme === 'dark' ? '/PixellaLab-Logo-Dark.png' : '/PixellaLab-Logo.png'}
+                                alt="Pixella Labs Logo"
+                                className="h-12 w-auto"
+                            />
                             <span className="text-3xl font-bold tracking-tighter text-text-primary">
                                 Pixella Labs<span className="text-text-accent">.</span>
                             </span>
@@ -54,7 +72,7 @@ const Footer = () => {
                 </div>
 
                 {/* Links Grid */}
-                <div className="md:col-span-12 lg:col-span-7 grid grid-cols-2 md:grid-cols-3">
+                <div className="md:col-span-12 lg:col-span-7 grid grid-cols-2 md:grid-cols-4">
                     <div className="p-12 border-b md:border-b-0 border-r border-border">
                         <h2 className="mb-8 text-xs font-bold text-text-secondary uppercase tracking-widest">Explore</h2>
                         <ul className="space-y-4">
@@ -69,6 +87,12 @@ const Footer = () => {
                             <li><Link to="/services" className="text-lg font-medium text-text-primary hover:text-text-accent transition-colors">Web Design</Link></li>
                             <li><Link to="/services" className="text-lg font-medium text-text-primary hover:text-text-accent transition-colors">E-commerce</Link></li>
                             <li><Link to="/services" className="text-lg font-medium text-text-primary hover:text-text-accent transition-colors">Branding</Link></li>
+                        </ul>
+                    </div>
+                    <div className="p-12 border-b md:border-b-0 border-r border-border">
+                        <h2 className="mb-8 text-xs font-bold text-text-secondary uppercase tracking-widest">Tools</h2>
+                        <ul className="space-y-4">
+                            <li><Link to="/tools/qr-generator" className="text-lg font-medium text-text-primary hover:text-text-accent transition-colors">QR Generator</Link></li>
                         </ul>
                     </div>
                     <div className="p-12">

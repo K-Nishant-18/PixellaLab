@@ -27,6 +27,7 @@ const About = lazyLoad(() => import('./pages/About'));
 const HowItWorks = lazyLoad(() => import('./pages/HowItWorks'));
 const Privacy = lazyLoad(() => import('./pages/Privacy'));
 const Terms = lazyLoad(() => import('./pages/Terms'));
+const QRGenerator = lazyLoad(() => import('./pages/Tools/QRGenerator'));
 
 // Scroll to top on route change
 const ScrollToTop = () => {
@@ -53,6 +54,7 @@ const AnimatedRoutes = () => {
                 <Route path="/portfolio" element={<Portfolio />} />
                 <Route path="/privacy" element={<Privacy />} />
                 <Route path="/terms" element={<Terms />} />
+                <Route path="/tools/qr-generator" element={<QRGenerator />} />
             </Routes>
         </AnimatePresence>
     );

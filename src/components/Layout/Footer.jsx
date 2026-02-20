@@ -93,6 +93,7 @@ const Footer = () => {
                         <h2 className="mb-8 text-xs font-bold text-text-secondary uppercase tracking-widest">Tools</h2>
                         <ul className="space-y-4">
                             <li><Link to="/tools/qr-generator" className="text-lg font-medium text-text-primary hover:text-text-accent transition-colors">QR Generator</Link></li>
+                            <li><Link to="/tools/image-tools" className="text-lg font-medium text-text-primary hover:text-text-accent transition-colors">Image Tools</Link></li>
                         </ul>
                     </div>
                     <div className="p-12">

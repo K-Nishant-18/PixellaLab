@@ -21,7 +21,7 @@ const Portfolio = () => {
                         Work.
                     </TextReveal>
                     <p className="text-text-secondary max-w-md text-lg">
-                        A selection of our latest work showcasing our capabilities in design and development.
+                        A selection of our latest work showcasing our capabilities in design & development.
                     </p>
                 </section>
 
